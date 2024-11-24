@@ -2,7 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+
 import authRoutes from './routes/auth.route';
+import carbonCreditRoutes from './routes/carbonCredit.routes';
+
 
 dotenv.config();
 
@@ -16,6 +19,8 @@ mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
   .catch((error) => console.error('MongoDB connection error:', error));
 
-app.use('/api/auth', authRoutes);
+app.use('/v1/auth', authRoutes);
+app.use('/v1/carbon', carbonCreditRoutes);
+
 
 export default app;
