@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 
 import authRoutes from './routes/auth.route';
 import carbonCreditRoutes from './routes/carbonCredit.routes';
+import marketDataRoutes from './routes/marketData.route';
 
 
 dotenv.config();
@@ -21,6 +22,7 @@ mongoose.connect(MONGO_URI)
 
 app.use('/v1/auth', authRoutes);
 app.use('/v1/carbon', carbonCreditRoutes);
+app.use('/v1/market', marketDataRoutes);
 
 
 export default app;
